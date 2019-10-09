@@ -1,0 +1,21 @@
+.login_div{
+    width: 24rem;
+    margin-top: 15%;
+    padding: 1%;
+    border-radius: 7px;
+    background: white;
+}
+
+.sign_in_section{
+    width: 100%;
+    margin-top: 5%;
+}
+
+.Login_field{
+    width: 18rem;
+}
+
+body{
+    background: url(../images/mountains.jpg);
+    background-size: cover;
+}
