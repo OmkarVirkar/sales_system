@@ -8,8 +8,11 @@ import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
 import { Button } from "@material-ui/core";
 import Zoom from '@material-ui/core/Zoom';
+import $ from 'jquery';
+import {checkUserSettings} from "../../models/media/js/externalRequestManager";
 
-class FormPage extends Component{
+
+export default class LoginPage extends Component{
 
     constructor(props) {
       super(props)
@@ -30,20 +33,24 @@ class FormPage extends Component{
 
     checkUser = () => {
         let THIS = this;
-      fetch(`http://localhost:9999/users/login`, {
-        method: 'post',
-        headers:{
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            "username": THIS.state.Username,
-            "password": THIS.state.Password
-        })
-      })
-        .then( response => {
-            console.log(response)
-        })  
+        let user = this.state.Username;
+        let pass = this.state.Password;
+        let settings = checkUserSettings(user, pass);
+
+        $.ajax(settings).done(function(response){
+            if(response.length > 0){
+                THIS.changeWindow(response[0].profile_type);
+            }
+        });
+    
     };
+
+    changeWindow = (profile_type) => {
+        if(profile_type == 0){
+            this.props.history.push("MainPage");
+        }
+        
+    }
 
     ResetFields = () => {
         this.setState({Username: "", Password: ""})
@@ -77,6 +84,7 @@ render(){
                 className="Login_field text-center"
                 placeholder = "Password"
                 margin="normal"
+                type="password"
                 value={this.state.Password}
                 onChange={this.changePassword}
                 variant="outlined"
@@ -96,5 +104,3 @@ render(){
   );
 }
 };
-
-export default FormPage;
