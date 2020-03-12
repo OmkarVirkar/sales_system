@@ -2,7 +2,7 @@ var mysql = require('mysql');
 
 var connection = mysql.createConnection({
   host     : '127.0.0.1',
-  database : 'sales_system',
+  database : 'db_client_dashboard',
   user     : 'root',
   password : 'root',
   port     : "8889"

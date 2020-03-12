@@ -15,7 +15,9 @@
     width: 18rem;
 }
 
-body{
-    
+body{ 
+    /* background-size: cover; */
+    background: url('../../../../media/images/material_background.jpg');
+    /* background-color: green; */
     background-size: cover;
 }

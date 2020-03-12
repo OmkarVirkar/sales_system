@@ -12,6 +12,7 @@ import $ from 'jquery';
 import {checkUserSettings} from "../../models/media/js/externalRequestManager";
 
 
+
 export default class LoginPage extends Component{
 
     constructor(props) {
@@ -39,14 +40,15 @@ export default class LoginPage extends Component{
 
         $.ajax(settings).done(function(response){
             if(response.length > 0){
-                THIS.changeWindow(response[0].profile_type);
+                THIS.changeWindow(response[0].login_type);
             }
         });
     
     };
 
     changeWindow = (profile_type) => {
-        if(profile_type == 0){
+        console.log(profile_type)
+        if(profile_type == 2){
             this.props.history.push("MainPage");
         }
         
@@ -61,6 +63,7 @@ export default class LoginPage extends Component{
 render(){
 
   return (
+    <div id="login_page_body" >
     <Zoom in={true} style={{ transitionDelay: '200ms'}}>
     <div className="login_div shadow mx-auto">
         <div className="text-center">
@@ -101,6 +104,7 @@ render(){
         </div>
     </div>
     </Zoom>
+    </div>
   );
 }
 };

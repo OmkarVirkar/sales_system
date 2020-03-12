@@ -1,8 +1,11 @@
+import {loginOperationPath, projectOperationPath} from "../../../models/media/js/pathsConstants";
+
 export let checkUserSettings = (user, pass) => {
     let settings = {
         type: "POST",
-        url: "http://localhost:9999/users/login",
+        url: loginOperationPath,
         data: {
+            "operationType":"Login",
             "username": user,
             "password": pass
         },
@@ -13,13 +16,25 @@ export let checkUserSettings = (user, pass) => {
 }
 
 
-export let logoutUserSetting = (user, pass) => {
+export let logoutUserSetting = () => {
     let settings = {
         type: "POST",
-        url: "http://localhost:9999/users/login",
+        url: loginOperationPath,
         data: {
-            "username": user,
-            "password": pass
+            "operationType":"Logout"
+        },
+        crossDomain: true,
+    };
+
+    return settings;
+}
+
+export let getProjectListSetting = () => {
+    let settings = {
+        type: "POST",
+        url: projectOperationPath,
+        data: {
+            "operationType":"Logout"
         },
         crossDomain: true,
     };

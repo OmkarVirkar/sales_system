@@ -1,7 +1,7 @@
 import React from 'react';
 import { Component } from 'react';
-import PersistentDrawerLeft from "../../commonComponents/navBar/NavBar";
-import SideBar from "../../commonComponents/sidebar/Sidebar";
+import PersistentDrawerLeft from "./components/NavBar";
+// import SideBar from "./components/Sidebar";
 
 export default class MainPage extends Component{
 
@@ -25,7 +25,7 @@ export default class MainPage extends Component{
     render(){
         return(
             <div>
-                <PersistentDrawerLeft logout={this.goToLoginPage}/>
+                <PersistentDrawerLeft logout={this.goToLoginPage}/>  
             </div>
         )
     }

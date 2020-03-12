@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+// import App from './App';
 import { BrowserRouter , Route } from "react-router-dom";
 import LoginPage from "./views/loginPage/login";
 import MainPage from "./views/MainPage/MainPage";
@@ -10,12 +10,12 @@ import * as serviceWorker from './serviceWorker';
 
 const routing = (
     <BrowserRouter>
-        <div>
+        
             <Route exact path="/" component={LoginPage}>
 
             </Route>
             <Route path="/MainPage" component={MainPage} />
-        </div>
+        
     </BrowserRouter>
 )
 ReactDOM.render(routing, document.getElementById('root'));

@@ -10,10 +10,13 @@ router.get('/', function(req, res, next) {
 
 router.post('/login', function(req, res){
   // Step 1: Get the userName and the password
+  let opertationType = req.body.operationType;
   let userName = req.body.username;
   let password = req.body.password; 
   // Step 2: Check if the user exists
-  loginObj.checkUser(userName, password)
+
+  if(opertationType == "Login"){
+    loginObj.checkUser(userName, password)
     .then(  result => {
       console.log("final "+result);
       result = JSON.parse(result);
@@ -23,10 +26,16 @@ router.post('/login', function(req, res){
       }else{
         userSession = [];
       }
-
+      
       res.send(result);}
     );
+  }else if(opertationType == "Logout"){
+    userSession = [];
+    res.send(true); 
+  }
+  
 
 });
+
 
 module.exports = router;

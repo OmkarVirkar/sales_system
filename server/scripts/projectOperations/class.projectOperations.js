@@ -1,25 +1,20 @@
 const connection = require("../../DBConnect.js").connection;
 
-class loginOperations {
+class ProjectOperations {
     constructor(){
         this.userName = "";
         this.password  ="";
     }
 
-    checkUser(userName, password){
+    getProjectList(){
         return new Promise((resolve, reject) => {
-            // Step 1: Set the username and passowrd in the constructor
-            this.userName = userName;
-            this.password = password;
+           
                     
-            // Step 2: Check if the userExists
-            var qry = {
-                "operationType": "CheckUser",
-                "userName": this.userName,
-                "password": this.password
-            
+            let operationsObj = {
+                operationType: "getProjectList"
             }
-            let userQuery = this.createCheckQuery(qry)
+            
+            let userQuery = this.createCheckQuery(operationsObj)
             // console.log(userQuery);
             this.fireQuery( userQuery )
             .then(message => {console.log(message); return resolve(message);})
@@ -57,13 +52,13 @@ class loginOperations {
 
         switch( operationType ){
             
-            case "CheckUser": 
-                let Query = "SELECT * FROM `login` WHERE `username` = '"+operationObj.userName+"' AND `password` = '"+operationObj.password+"'";
+            case "getProjectList": 
+                let Query = "SELECT * FROM `project_list`";
             return Query;
         }
     }
 }
 
-const loginObj = new loginOperations();
+const projectOperationsObj = new ProjectOperations();
 
-module.exports = {loginObj};
+module.exports = {projectOperationsObj};
