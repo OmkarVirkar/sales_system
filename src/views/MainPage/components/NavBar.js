@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import clsx from 'clsx';
 import { makeStyles, useTheme, withStyles, fade } from '@material-ui/core/styles';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import SettingsIcon from '@material-ui/icons/Settings';
 import StorageIcon from '@material-ui/icons/Storage';
+import MoneyIcon from '@material-ui/icons/MonetizationOn';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import Drawer from '@material-ui/core/Drawer';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -77,6 +78,7 @@ export default function PersistentDrawerLeft(props) {
   const mobileMenuId = 'primary-search-account-menu-mobile';
 
   return (
+    
     <div className={classes.root}>
       <CssBaseline />
       <AppBar
@@ -126,6 +128,10 @@ export default function PersistentDrawerLeft(props) {
               <ListItemIcon><AccountCircleIcon /></ListItemIcon>
               <ListItemText primary={"Account Settings"} />
             </ListItem>
+            <ListItem button key={"Sales"}  >
+              <ListItemIcon><MoneyIcon /></ListItemIcon>
+              <ListItemText primary={"Sales"} />
+            </ListItem>
             <ListItem button key={"Inventory"}  >
               <ListItemIcon><StorageIcon /></ListItemIcon>
               <ListItemText primary={"Inventory"} />
@@ -142,14 +148,14 @@ export default function PersistentDrawerLeft(props) {
         </List>
         
       </Drawer>
-      <main
-        className={clsx(classes.content, {
-          [classes.contentShift]: open,
-        })}
-      >
-        <div className={classes.drawerHeader} />
-        <ProjectTable />
-      </main>
-    </div>
+     <main
+     className={clsx(classes.content, {
+      [classes.contentShift]: open,
+    })}
+   >
+     <div className={classes.drawerHeader} />
+     <ProjectTable />
+   </main>
+   </div>
   );
 }

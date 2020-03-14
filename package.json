@@ -13,7 +13,8 @@
     "mdbreact": "^4.25.2",
     "react": "^16.10.0",
     "react-dom": "^16.10.0",
-    "react-scripts": "^3.4.0"
+    "react-scripts": "^3.4.0",
+    "react-simple-sidenav": "^1.0.1"
   },
   "scripts": {
     "start": "react-scripts start",

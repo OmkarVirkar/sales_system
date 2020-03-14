@@ -25,8 +25,22 @@ export default class ProjectTable extends Component{
 
     render(){
         let columns = [
-            { title: 'Project Id', field: 'project_id' },
-            { title: 'Project Name', field: 'project_name' }
+            { title: 'Project Id', field: 'project_id' , cellStyle: {
+                width: 20,
+                maxWidth: 20
+              },
+              headerStyle: {
+                width:20,
+                maxWidth: 20
+              }},
+            { title: 'Project Name', field: 'project_name' , cellStyle: {
+                width: 80,
+                minWidth: 80
+              },
+              headerStyle: {
+                width:80,
+                minWidth: 80
+              }}
             
           ];
 
