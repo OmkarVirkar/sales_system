@@ -1,0 +1,142 @@
+/* .MuiAppBar-colorPrimary{
+    background: #ffffffe6 !important;
+    color: black !important;
+}
+
+.MuiPaper-elevation4{
+    box-shadow: 0px 2px 4px -1px rgba(224, 224, 224, 0.2), 0px 4px 5px 0px rgba(138, 138, 138, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+}
+
+.MuiDrawer-paper{
+    background: #ffffffb8 !important;
+    color: black !important; 
+} */
+/* Stack(
+    children: [
+        Stack
+    ]
+)(
+    children: [
+        #appBar{
+            background-color: re;
+        }
+    ]
+) */
+.toolbar{
+    width: 100%;
+    position: fixed;
+    background: white;
+    height: 3.5rem;
+    top: 0;
+    left: 0;
+    z-index: 500;
+}
+
+.toolbar_navigation{
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.toolbar_logo{
+    color: black;
+    text-decoration: none;
+    font-size: 1.5rem;
+    padding: 0rem 1rem;
+    font-style: italic;
+    font-family: inherit;
+    font-weight: 500;
+}
+
+.toolbar_logo:hover{
+    cursor: pointer;
+}
+
+.toolbar_navigation_items ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.toolbar_navigation_items li{
+    padding: 0 1rem;
+    font-weight: 300;
+    font-family: inherit;
+    /* font-style: italic; */
+}
+
+.toolbar_navigation_items li:hover{
+    cursor: pointer;
+}
+
+.spacer{
+    flex: 1;
+}
+
+
+.side_manu_icon{
+    font-size: 1.5rem;
+}
+
+.side_manu_icon:hover{
+    cursor: pointer;
+}
+
+.side-drawer{
+    height: 100%;
+    background: #ececec;
+    /* position: fixed; */
+    width: 19%;
+    z-index: 200;
+    max-width: 400px;
+    /* text-align: inherit; */
+    display: inline-grid;
+    margin-top: 3.5rem;
+    vertical-align: top;
+}
+
+.side-drawer ul{
+    height: 100%;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 1rem;
+}
+
+.side-drawer li{
+   /* margin: 0.5rem 0rem; */
+   /* padding-left: 1.5rem; */
+   padding: 1rem 1.5rem;
+   margin-top: 0.5rem; 
+   background: white;
+   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+   border-radius: 5rem;
+}
+
+.side-drawer li:hover, .Selected_page{
+    background: linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%) !important;
+    font-style: italic;
+    color: white;
+    font-weight: 700;
+    border-radius: 5rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+}
+
+.backdrop{
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 20%;
+    z-index: 200;
+}
+
+.content_div{
+    margin-top: 3.5rem;
+    display: inline-block;
+    width: 81%;
+    /* padding: 1%; */
+    padding: 0.5rem 1rem;
+    background: #f3f3f3;
+}

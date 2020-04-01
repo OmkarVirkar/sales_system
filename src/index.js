@@ -5,17 +5,19 @@ import './index.css';
 import { BrowserRouter , Route } from "react-router-dom";
 import LoginPage from "./views/loginPage/login";
 import MainPage from "./views/MainPage/MainPage";
+import Sales from "./views/Sales/Sales";
+import Inventory from "./views/Inventory/Inventory";
+import UserProfile from "./views/UserProfile/UserProfile";
 import 'bootstrap';
 import * as serviceWorker from './serviceWorker';
 
 const routing = (
     <BrowserRouter>
-        
-            <Route exact path="/" component={LoginPage}>
-
-            </Route>
+            <Route exact path="/" component={LoginPage} />
             <Route path="/MainPage" component={MainPage} />
-        
+            <Route path="/Inventory" component={Inventory} />
+            <Route path="/Sales" component={Sales} />
+            <Route path="/UserProfile" component={UserProfile} />  
     </BrowserRouter>
 )
 ReactDOM.render(routing, document.getElementById('root'));

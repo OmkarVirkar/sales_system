@@ -7,7 +7,7 @@ import $ from 'jquery';
 // import PersistentDrawerLeft from "./components/NavBar";
 // import SideBar from "./components/Sidebar";
 
-export default class MainPage extends Component{
+export default class Sales extends Component{
 
     constructor(){
         super();
@@ -41,7 +41,7 @@ export default class MainPage extends Component{
                 <ToolBar showSideDrawer = {this.showSideDrawer}/>
                 </div>
                 <div>
-                    <SideDrawer selectedOption={OPTIONS.MAIN_PAGE} />
+                    <SideDrawer selectedOption={OPTIONS.SALES} />
                         
                         {/* <Backdrop /> */}
                     <div id="content_div" className="content_div">

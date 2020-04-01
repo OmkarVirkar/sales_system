@@ -48,9 +48,9 @@ export default class LoginPage extends Component{
 
     changeWindow = (profile_type) => {
         console.log(profile_type)
-        if(profile_type == 2){
+        /* if(profile_type == 2){ */
             this.props.history.push("MainPage");
-        }
+        // }
         
     }
 
@@ -64,7 +64,7 @@ render(){
 
   return (
     <div id="login_page_body" >
-    <Zoom in={true} style={{ transitionDelay: '200ms'}}>
+    <Zoom in={true} style={{ transitionDelay: '50ms'}}>
     <div className="login_div shadow mx-auto">
         <div className="text-center">
             <h2>Login Page</h2>

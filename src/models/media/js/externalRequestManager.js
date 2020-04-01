@@ -1,4 +1,6 @@
-import {loginOperationPath, projectOperationPath} from "../../../models/media/js/pathsConstants";
+import {loginOperationPath, 
+        projectOperationPath, 
+        userDetailsPath} from "../../../models/media/js/pathsConstants";
 
 export let checkUserSettings = (user, pass) => {
     let settings = {
@@ -38,6 +40,19 @@ export let getProjectListSetting = () => {
         },
         crossDomain: true,
     };
+
+    return settings;
+}
+
+export let getUserProfileData = () => {
+    let settings = {
+        type: "POST",
+        url: userDetailsPath,
+        data: {
+            "operationType":"getUserDetails"
+        },
+        crossDomain:true
+    }
 
     return settings;
 }

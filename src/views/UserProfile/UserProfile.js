@@ -2,18 +2,25 @@ import React, { Fragment } from 'react';
 import { Component } from 'react';
 import {ToolBar, SideDrawer, Backdrop, OPTIONS} from "../../commonComponents/navBar/NavBar";
 import {setBarHeights} from "../../media/js/utils";
+import {OverViewHeader} from "./components/UserProfileComponents";
+import ProfileDetails from "./components/UserProfileComponents";
 import 'bootstrap';
+import "./media/userProfile.css";
 import $ from 'jquery';
 // import PersistentDrawerLeft from "./components/NavBar";
 // import SideBar from "./components/Sidebar";
 
-export default class MainPage extends Component{
+export default class UserProfile extends Component{
 
     constructor(){
         super();
         this.state = {
             showSidebar : true
         }
+    }
+
+    componentWillMount(){
+       
     }
 
     componentDidMount = () => {
@@ -41,11 +48,14 @@ export default class MainPage extends Component{
                 <ToolBar showSideDrawer = {this.showSideDrawer}/>
                 </div>
                 <div>
-                    <SideDrawer selectedOption={OPTIONS.MAIN_PAGE} />
+                    <SideDrawer selectedOption={OPTIONS.USER_INFO} />
                         
                         {/* <Backdrop /> */}
                     <div id="content_div" className="content_div">
-                        <h1 className="text-center" >Work In Progress...</h1>
+                        <OverViewHeader/>
+                    
+                        <ProfileDetails/>
+                        
                     </div> 
                 </div>
             </div>

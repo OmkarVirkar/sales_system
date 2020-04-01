@@ -1,4 +1,4 @@
-const connection = require("../../DBConnect.js").connection;
+const connection = require("../../DBConnect.js").ConnObj;
 
 class loginOperations {
     constructor(){
@@ -8,6 +8,7 @@ class loginOperations {
 
     checkUser(userName, password){
         return new Promise((resolve, reject) => {
+            var conn = connection.establishConnection()
             // Step 1: Set the username and passowrd in the constructor
             this.userName = userName;
             this.password = password;
@@ -17,11 +18,10 @@ class loginOperations {
                 "operationType": "CheckUser",
                 "userName": this.userName,
                 "password": this.password
-            
             }
             let userQuery = this.createCheckQuery(qry)
             // console.log(userQuery);
-            this.fireQuery( userQuery )
+            connection.fireQuery(conn, userQuery )
             .then(message => {console.log(message); return resolve(message);})
             .catch((err) => {console.log(`Error while fetching the user`)})
         });
@@ -29,36 +29,13 @@ class loginOperations {
         
     }
 
-    fireQuery(userQuery){
-        return new Promise(( resolve, reject ) => {
-            connection.query( userQuery , function( err, result, fields){
-                if(err){
-                    console.log(`Error: ${err}`)
-                    return reject(err);
-                }
-                
-                /*
-                    If the query retured a user then the length will be more than 0;
-                */
-                if(result.length > 0){
-                    let userData  = JSON.stringify(result, undefined, 2);
-                    console.log(userData);
-                    return  resolve(userData);
-                }else{
-                    return  resolve(false);
-                }
-        
-        });
-        })
-            
-    }
     createCheckQuery( operationObj ){
         let operationType = operationObj.operationType;
 
         switch( operationType ){
             
             case "CheckUser": 
-                let Query = "SELECT * FROM `login` WHERE `username` = '"+operationObj.userName+"' AND `password` = '"+operationObj.password+"'";
+                let Query = "SELECT * FROM `user_profiles` WHERE `username` = '"+operationObj.userName+"' AND `password` = '"+operationObj.password+"'";
             return Query;
         }
     }
